@@ -1,0 +1,940 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MY PORTFOLIO | Praew & Kaem</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --gold: #b79552;
+    --gold-light: #e4d3a9;
+    --cream: #faf8f2;
+    --white: #ffffff;
+    --text: #39352e;
+    --muted: #89847a;
+    --border: #e9e2d3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Kanit', sans-serif;
+    line-height: 1.8;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,.94);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+    padding: 15px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 13px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 26px;
+    color: var(--gold);
+    cursor: pointer;
+}
+
+section {
+    padding: 90px 8%;
+    scroll-margin-top: 75px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.english-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: clamp(30px, 5vw, 43px);
+    letter-spacing: 3px;
+}
+
+.thai-title {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.gold-line {
+    width: 65px;
+    height: 3px;
+    background: var(--gold);
+    margin: 15px auto;
+}
+
+.hero {
+    min-height: 650px;
+    background:
+    radial-gradient(circle at top, #fff 0%, #faf8f2 70%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-label {
+    color: var(--gold);
+    letter-spacing: 5px;
+    font-size: 13px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(55px, 10vw, 95px);
+    color: var(--gold);
+    line-height: 1.3;
+    margin: 15px 0;
+}
+
+.hero h2 {
+    font-size: clamp(18px, 4vw, 26px);
+    font-weight: 400;
+}
+
+.hero p {
+    color: var(--muted);
+    margin-top: 12px;
+}
+
+.hero-members {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 45px;
+}
+
+.member {
+    width: 250px;
+    background: white;
+    padding: 22px;
+    border: 1px solid var(--gold-light);
+    border-radius: 18px;
+    box-shadow: 0 10px 35px rgba(100,80,30,.06);
+    transition: .3s;
+}
+
+.member:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(100,80,30,.12);
+}
+
+.photo {
+    width: 145px;
+    height: 175px;
+    margin: auto auto 18px;
+    border-radius: 80px 80px 20px 20px;
+    border: 3px solid var(--gold-light);
+    background: #f4efe3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member h3 {
+    color: var(--text);
+    font-size: 17px;
+}
+
+.member p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.gold-button {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background: var(--gold);
+    padding: 10px 28px;
+    border-radius: 30px;
+    margin-top: 20px;
+    transition: .3s;
+}
+
+.gold-button:hover {
+    background: #92723c;
+    transform: translateY(-3px);
+}
+
+.alt-section {
+    background: white;
+}
+
+.member-section {
+    margin: 35px auto;
+    max-width: 950px;
+    padding: 30px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+}
+
+.member-section h3 {
+    color: var(--gold);
+    font-size: 24px;
+    margin-bottom: 18px;
+}
+
+.profile-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.profile-photo {
+    width: 100%;
+    height: 270px;
+    border: 2px solid var(--gold-light);
+    border-radius: 15px;
+    overflow: hidden;
+    background: #f5f0e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 40px;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.info-item {
+    background: var(--cream);
+    padding: 13px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.info-item span {
+    display: block;
+    color: var(--gold);
+    font-size: 12px;
+}
+
+.quote {
+    margin-top: 20px;
+    padding: 20px;
+    background: #faf6eb;
+    border-left: 4px solid var(--gold);
+    border-radius: 5px;
+    color: #806c46;
+    font-style: italic;
+}
+
+.education-card {
+    max-width: 750px;
+    margin: 20px auto;
+    padding: 25px;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    background: white;
+}
+
+.education-card h3 {
+    color: var(--gold);
+    margin-bottom: 12px;
+}
+
+.timeline {
+    border-left: 2px solid var(--gold-light);
+    padding-left: 22px;
+}
+
+.timeline-item {
+    position: relative;
+    margin: 15px 0;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -29px;
+    top: 10px;
+    width: 12px;
+    height: 12px;
+    background: var(--gold);
+    border-radius: 50%;
+}
+
+.timeline-item p {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.activity-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    max-width: 950px;
+    margin: auto;
+}
+
+.activity-card {
+    padding: 22px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    transition: .3s;
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+}
+
+.activity-card h3 {
+    color: var(--gold);
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.activity-card p {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.number {
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+    color: var(--gold-light);
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.skill-tag {
+    background: white;
+    color: #927744;
+    border: 1px solid var(--gold-light);
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-size: 14px;
+}
+
+.goal-card {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    border: 1px solid var(--gold-light);
+    border-radius: 20px;
+    padding: 35px;
+    text-align: center;
+}
+
+.goal-card h3 {
+    color: var(--gold);
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.goal-card p {
+    color: var(--muted);
+}
+
+.hobby-card {
+    max-width: 700px;
+    margin: 15px auto;
+    padding: 20px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.hobby-card h3 {
+    color: var(--gold);
+    margin-bottom: 8px;
+}
+
+footer {
+    background: #f0ebdf;
+    text-align: center;
+    padding: 55px 20px;
+}
+
+footer h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 38px;
+}
+
+footer p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.fade {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity .7s, transform .7s;
+}
+
+.fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media(max-width:850px) {
+    nav {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px;
+        flex-direction: column;
+        gap: 15px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    nav.show {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+}
+
+@media(max-width:600px) {
+    section {
+        padding: 65px 5%;
+    }
+
+    .profile-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-photo {
+        max-width: 220px;
+        margin: auto;
+    }
+
+    .info-list {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .activity-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .member-section {
+        padding: 20px;
+    }
+
+    .hero {
+        padding: 60px 15px;
+    }
+
+    .hero-members {
+        gap: 15px;
+    }
+
+    .member {
+        width: 220px;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">P & K.</div>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    <nav id="menu">
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#education">EDUCATION</a>
+        <a href="#activities">ACTIVITIES</a>
+        <a href="#awards">AWARDS</a>
+        <a href="#skills">SKILLS</a>
+        <a href="#goal">MY GOAL</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+<section class="hero" id="home">
+    <p class="hero-label">WELCOME TO OUR PORTFOLIO</p>
+    <h1>PORTFOLIO</h1>
+    <h2>HUMANITIES AND SOCIAL SCIENCES</h2>
+    <p>แฟ้มสะสมผลงานเพื่อเข้าศึกษาต่อระดับมหาวิทยาลัย</p>
+
+    <div class="hero-members">
+
+        <div class="member">
+            <div class="photo">
+                <img src="images/praew.jpg"
+                     alt="รูปแพร"
+                     onerror="this.style.display='none'">
+                <span>01</span>
+            </div>
+            <h3>นางสาวศรัณย์พร ชูนาค</h3>
+            <p>สมาชิกคนที่ 1 · PRAEW</p>
+            <a href="#praew" class="gold-button">VIEW PROFILE</a>
+        </div>
+
+        <div class="member">
+            <div class="photo">
+                <img src="images/kaem.jpg"
+                     alt="รูปแก้ม"
+                     onerror="this.style.display='none'">
+                <span>02</span>
+            </div>
+            <h3>นางสาววิไลวรรณ สารักษ์</h3>
+            <p>สมาชิกคนที่ 2 · KAEM</p>
+            <a href="#kaem" class="gold-button">VIEW PROFILE</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="alt-section">
+    <div class="section-heading">
+        <h2 class="english-title">ABOUT ME</h2>
+        <p class="thai-title">ประวัติส่วนตัว</p>
+        <div class="gold-line"></div>
+    </div>
+
+    <!-- PRAEW -->
+    <div class="member-section fade" id="praew">
+        <h3>01 · PRAEW</h3>
+
+        <div class="profile-layout">
+            <div class="profile-photo">
+                <img src="images/praew.jpg"
+                     alt="แพร"
+                     onerror="this.style.display='none'">
+                <span>P</span>
+            </div>
+
+            <div>
+                <h2>นางสาวศรัณย์พร ชูนาค</h2>
+                <p style="color:#b79552">ชื่อเล่น : แพร</p>
+
+                <div class="info-list">
+                    <div class="info-item">
+                        <span>วันเกิด</span>
+                        10 มีนาคม 2552
+                    </div>
+                    <div class="info-item">
+                        <span>อายุ</span>
+                        17 ปี
+                    </div>
+                    <div class="info-item">
+                        <span>ความสามารถ</span>
+                        มีความอดทน
+                    </div>
+                    <div class="info-item">
+                        <span>ความสามารถ</span>
+                        มีความรับผิดชอบ
+                    </div>
+                    <div class="info-item">
+                        <span>จุดเด่น</span>
+                        ค้นหาข้อมูลได้ดี
+                    </div>
+                    <div class="info-item">
+                        <span>จุดเด่น</span>
+                        มีความจำดี
+                    </div>
+                </div>
+
+                <div class="quote">
+                    "หนึ่งความรู้ หนึ่งก้าวแห่งความยุติธรรม"
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- KAEM -->
+    <div class="member-section fade" id="kaem">
+        <h3>02 · KAEM</h3>
+
+        <div class="profile-layout">
+            <div class="profile-photo">
+                <img src="images/kaem.jpg"
+                     alt="แก้ม"
+                     onerror="this.style.display='none'">
+                <span>K</span>
+            </div>
+
+            <div>
+                <h2>นางสาววิไลวรรณ สารักษ์</h2>
+                <p style="color:#b79552">ชื่อเล่น : แก้ม</p>
+
+                <div class="info-list">
+                    <div class="info-item">
+                        <span>วันเกิด</span>
+                        12 เมษายน 2552
+                    </div>
+                    <div class="info-item">
+                        <span>อายุ</span>
+                        17 ปี
+                    </div>
+                    <div class="info-item">
+                        <span>ความสามารถ</span>
+                        มีความอดทน
+                    </div>
+                    <div class="info-item">
+                        <span>ความสามารถ</span>
+                        เล่นดนตรี
+                    </div>
+                    <div class="info-item">
+                        <span>จุดเด่น</span>
+                        มีความอดทน
+                    </div>
+                </div>
+
+                <div class="quote">
+                    "To teach is to touch a life forever."
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+    <div class="section-heading">
+        <h2 class="english-title">EDUCATION</h2>
+        <p class="thai-title">ประวัติการศึกษา</p>
+        <div class="gold-line"></div>
+    </div>
+
+    <div class="education-card fade">
+        <h3>01 · ศรัณย์พร ชูนาค</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <strong>ระดับประถมศึกษา</strong>
+                <p>โรงเรียนบ้านหนองใหญ่</p>
+            </div>
+            <div class="timeline-item">
+                <strong>ระดับมัธยมศึกษาตอนต้น</strong>
+                <p>โรงเรียนบ้านหนองใหญ่</p>
+            </div>
+            <div class="timeline-item">
+                <strong>ระดับมัธยมศึกษาตอนปลาย</strong>
+                <p>โรงเรียนทุ่งใหญ่เฉลิมราชอนุสรณ์ รัชมังคลาภิเษก</p>
+                <p>แผนการเรียน : ศิลป์-คำนวณ</p>
+                <p>เริ่มศึกษา ม.4 ปีการศึกษา 2567</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="education-card fade">
+        <h3>02 · วิไลวรรณ สารักษ์</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <strong>ระดับประถมศึกษา</strong>
+                <p>โรงเรียนวัดประดิษฐ์ฐาราม</p>
+            </div>
+            <div class="timeline-item">
+                <strong>ระดับมัธยมศึกษาตอนต้น</strong>
+                <p>โรงเรียนวัดประดิษฐ์ฐาราม</p>
+            </div>
+            <div class="timeline-item">
+                <strong>ระดับมัธยมศึกษาตอนปลาย</strong>
+                <p>โรงเรียนทุ่งใหญ่เฉลิมราชอนุสรณ์ รัชมังคลาภิเษก</p>
+                <p>แผนการเรียน : ศิลป์-คำนวณ</p>
+                <p>เริ่มศึกษา ม.4 ปีการศึกษา 2567</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section id="activities" class="alt-section">
+    <div class="section-heading">
+        <h2 class="english-title">ACTIVITIES</h2>
+        <p class="thai-title">กิจกรรมและประสบการณ์</p>
+        <div class="gold-line"></div>
+    </div>
+
+    <h3 style="text-align:center;color:#b79552;margin-bottom:20px">
+        01 · กิจกรรมของแพร
+    </h3>
+
+    <div class="activity-grid">
+        <div class="activity-card fade">
+            <div class="number">01</div>
+            <h3>โครงการต่อต้านยาเสพติด</h3>
+            <p>เข้าร่วมกิจกรรมส่งเสริมการป้องกันและต่อต้านยาเสพติด</p>
+        </div>
+        <div class="activity-card fade">
+            <div class="number">02</div>
+            <h3>จิตอาสาเก็บขยะ</h3>
+            <p>ร่วมเก็บขยะในกิจกรรมทัศนศึกษา</p>
+        </div>
+        <div class="activity-card fade">
+            <div class="number">03</div>
+            <h3>กิจกรรมกีฬาสี</h3>
+            <p>ปฏิบัติหน้าที่ฝ่ายศิลป์</p>
+        </div>
+        <div class="activity-card fade">
+            <div class="number">04</div>
+            <h3>เข้าวัดทำบุญ</h3>
+            <p>เข้าร่วมกิจกรรมทางพระพุทธศาสนา</p>
+        </div>
+        <div class="activity-card fade">
+            <div class="number">05</div>
+            <h3>บำเพ็ญประโยชน์</h3>
+            <p>ร่วมทำกิจกรรมเพื่อส่วนรวม</p>
+        </div>
+        <div class="activity-card fade">
+            <div class="number">06</div>
+            <h3>กิจกรรมวันอาเซียน</h3>
+            <p>ร่วมจัดบูธเสริมสร้างทักษะและความรู้</p>
+        </div>
+    </div>
+
+    <h3 style="text-align:center;color:#b79552;margin:45px 0 20px">
+        02 · กิจกรรมของแก้ม
+    </h3>
+
+    <div class="activity-grid">
+        <div class="activity-card fade">
+            <div class="number">01</div>
+            <h3>จิตอาสาเก็บขยะ</h3>
+            <p>ร่วมเก็บขยะในกิจกรรมทัศนศึกษา</p>
+        </div>
+        <div class="activity-card fade">
+            <div class="number">02</div>
+            <h3>เข้าวัดทำบุญ</h3>
+            <p>เข้าร่วมกิจกรรมทางพระพุทธศาสนา</p>
+        </div>
+        <div class="activity-card fade">
+            <div class="number">03</div>
+            <h3>บำเพ็ญประโยชน์</h3>
+            <p>ร่วมทำกิจกรรมเพื่อส่วนรวม</p>
+        </div>
+        <div class="activity-card fade">
+            <div class="number">04</div>
+            <h3>กิจกรรมวันอาเซียน</h3>
+            <p>ร่วมจัดบูธเสริมสร้างทักษะและความรู้</p>
+        </div>
+    </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+    <div class="section-heading">
+        <h2 class="english-title">AWARDS & ACHIEVEMENTS</h2>
+        <p class="thai-title">เกียรติบัตรและผลงานที่เข้าร่วม</p>
+        <div class="gold-line"></div>
+    </div>
+
+    <div class="education-card fade">
+        <h3>01 · ผลงานของแพร</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <strong>เข้าร่วมค่ายคุณธรรม จริยธรรม</strong>
+            </div>
+            <div class="timeline-item">
+                <strong>กิจกรรมรณรงค์และต่อต้านยาเสพติด</strong>
+            </div>
+            <div class="timeline-item">
+                <strong>เข้าร่วมการแข่งขันอัจฉริยภาพ</strong>
+                <p>สังคมศึกษา ศาสนาและวัฒนธรรม</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="education-card fade">
+        <h3>02 · ผลงานของแก้ม</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <strong>กิจกรรมเขตพื้นที่สะอาด</strong>
+            </div>
+            <div class="timeline-item">
+                <strong>เข้าร่วมกิจกรรมค่ายคุณธรรม จริยธรรม</strong>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section class="alt-section" id="skills">
+    <div class="section-heading">
+        <h2 class="english-title">MY SKILLS</h2>
+        <p class="thai-title">ความสามารถและทักษะ</p>
+        <div class="gold-line"></div>
+    </div>
+
+    <h3 style="text-align:center;color:#b79552">PRAEW</h3>
+    <div class="skills">
+        <span class="skill-tag">ความอดทน</span>
+        <span class="skill-tag">ความรับผิดชอบ</span>
+        <span class="skill-tag">การค้นหาข้อมูล</span>
+        <span class="skill-tag">ความจำดี</span>
+    </div>
+
+    <h3 style="text-align:center;color:#b79552;margin-top:35px">KAEM</h3>
+    <div class="skills">
+        <span class="skill-tag">ความอดทน</span>
+        <span class="skill-tag">การเล่นดนตรี</span>
+    </div>
+</section>
+
+<!-- HOBBIES -->
+<section id="hobbies">
+    <div class="section-heading">
+        <h2 class="english-title">MY HOBBIES</h2>
+        <p class="thai-title">งานอดิเรก</p>
+        <div class="gold-line"></div>
+    </div>
+
+    <div class="hobby-card">
+        <h3>01 · PRAEW</h3>
+        <p>อ่านหนังสือ · ฟังเพลง · ดูหนัง · เล่นเกม</p>
+    </div>
+
+    <div class="hobby-card">
+        <h3>02 · KAEM</h3>
+        <p>เล่นดนตรี · ฟังเพลง · เล่นเกม</p>
+    </div>
+</section>
+
+<!-- GOALS -->
+<section id="goal" class="alt-section">
+    <div class="section-heading">
+        <h2 class="english-title">MY GOAL</h2>
+        <p class="thai-title">เป้าหมายในอนาคต</p>
+        <div class="gold-line"></div>
+    </div>
+
+    <div class="goal-card fade">
+        <h3>PRAEW</h3>
+        <p>คณะที่ต้องการเข้าศึกษา : คณะนิติศาสตร์</p>
+        <p>มหาวิทยาลัย : มหาวิทยาลัยรามคำแหง</p>
+        <p>เป้าหมายอาชีพ : อัยการ</p>
+    </div>
+
+    <div class="goal-card fade" style="margin-top:25px">
+        <h3>KAEM</h3>
+        <p>คณะที่ต้องการเข้าศึกษา : เอกภาษาอังกฤษ</p>
+        <p>มหาวิทยาลัย : มหาวิทยาลัยวลัยลักษณ์</p>
+        <p>เป้าหมายอาชีพ : ครู</p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <h2>THANK YOU</h2>
+    <div class="gold-line"></div>
+    <p>ขอบคุณที่เข้าชมแฟ้มสะสมผลงานของเรา</p>
+    <p style="margin-top:15px">PRAEW & KAEM</p>
+    <p>HUMANITIES AND SOCIAL SCIENCES</p>
+    <p style="margin-top:20px;font-size:12px">
+        © 2026 MY PORTFOLIO
+    </p>
+</footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("show");
+}
+
+document.querySelectorAll("nav a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.getElementById("menu").classList.remove("show");
+    });
+});
+
+// Scroll animation
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll(".fade").forEach(el => {
+    observer.observe(el);
+});
+</script>
+
+</body>
+</html>
